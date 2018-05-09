@@ -62,4 +62,10 @@ switch Keychain.default.deleteObject(forKey: .authToken) {
         print("Bummer! \(error.description")
 }
 ```
-
+## Get it!
+### CocoaPods
+```ruby
+pod 'TinyKeychain'
+```
+### Carthage
+github 'smolster/TinyKeychain'
