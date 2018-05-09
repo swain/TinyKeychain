@@ -1,6 +1,6 @@
 //
 //  Keychain.swift
-//  KeychainWrapper
+//  TinyKeychain
 //
 //  Created by Swain Molster on 5/9/18.
 //  Copyright © 2018 Swain Molster. All rights reserved.
