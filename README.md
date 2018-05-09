@@ -1,4 +1,4 @@
-# KeychainWrapper
+# TinyKeychain
 A type-safe, easy-to-use keychain wrapper that can store anything that's `Codable`.
 
 ## Basic Usage:
