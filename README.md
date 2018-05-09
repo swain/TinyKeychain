@@ -68,4 +68,6 @@ switch Keychain.default.deleteObject(forKey: .authToken) {
 pod 'TinyKeychain'
 ```
 ### Carthage
+```
 github 'smolster/TinyKeychain'
+```
