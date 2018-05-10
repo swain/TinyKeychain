@@ -74,9 +74,9 @@ public class Keychain {
             case .afterFirstUnlockThisDeviceOnly:
                 return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
                 
-            case .alwaysAccessible:
+            case .always:
                 return kSecAttrAccessibleAlways
-            case .alwaysAccessibleThisDeviceOnly:
+            case .alwaysThisDeviceOnly:
                 return kSecAttrAccessibleAlwaysThisDeviceOnly
                 
             case .whenPasscodeSetThisDeviceOnly:
@@ -88,12 +88,12 @@ public class Keychain {
         public var synchronizationIsPossible: Bool {
             switch self {
                 case .afterFirstUnlock,
-                     .alwaysAccessible,
+                     .always,
                      .whenUnlocked:
                 return true
                 
                 case .afterFirstUnlockThisDeviceOnly,
-                     .alwaysAccessibleThisDeviceOnly,
+                     .alwaysThisDeviceOnly,
                      .whenPasscodeSetThisDeviceOnly,
                      .whenUnlockedThisDeviceOnly:
                 return false
