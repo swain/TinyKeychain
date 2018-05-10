@@ -1,7 +1,7 @@
 # TinyKeychain
 A Swifty, type-safe, easy-to-use keychain wrapper that can store anything that's `Codable`.
 
-## Basic Usage:
+## How to use:
 
 First, set up your objects.
 
