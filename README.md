@@ -1,4 +1,6 @@
 # TinyKeychain
+[![Travis CI](https://img.shields.io/travis/smolster/TinyKeychain/master.svg?style=flat-square)](https://travis-ci.org/smolster/TinyKeychain) [![pod](https://img.shields.io/cocoapods/v/TinyKeychain.svg?style=flat-square)](https://cocoapods.org/pods/TinyKeychain) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage) ![platforms](https://img.shields.io/badge/platforms-iOS-333333.svg?style=flat-square) ![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat-square)
+
 A Swifty, type-safe, easy-to-use keychain wrapper that can store anything that's `Codable`.
 
 ## How to use:
