@@ -7,7 +7,7 @@ First, set up your objects.
 
 TinyKeychain is built to store objects that are `Codable`, like this one:
 ```swift
-struct Token: Codable {
+struct MyToken: Codable {
     let fullToken: String
 }
 ```
@@ -18,18 +18,14 @@ extension Keychain {
     static var `default`: Keychain {
         return Keychain(keychainAccessGroup: "my.keychain.access.group")
     }
-    
-    static var lowSecurity: Keychain {
-        return Keychain(keychainAccessGroup: "my.keychain.access.group", accessibilityLevel: .always)
-    }
 }
 ```
 
 The only way to store & retrieve objects to/from the keychain is using a `Keychain.Key` object. These are tied to a `Codable` object type, and also don't hold mutable state. We recommend you make them accessible using dot syntax, as well:
 ```swift
 extension Keychain.Key {
-    static var authToken: Keychain.Key<TokenObject> {
-        return Keychain.Key<TokenObject>(rawValue: "auth.token.key", synchronize: true)
+    static var authToken: Keychain.Key<MyToken> {
+        return Keychain.Key<MyToken>(rawValue: "auth.token.key", synchronize: true)
     }
 }
 ```
@@ -38,7 +34,7 @@ Once you've got a `Keychain` instance, and a `Key` to query with, get to work! `
 
 ```swift
 // Store
-Keychain.default[.authToken] = TokenObject(fullToken: "sample.token")
+Keychain.default[.authToken] = Token(fullToken: "sample.token")
 
 // Retrieve
 let fullToken = Keychain.default[.authToken]?.fullToken
@@ -50,7 +46,7 @@ Keychain.default[.authToken] = nil
 Or, you can interface directly, and implement some error handling:
 ```swift
 // Store
-let token = TokenObject(fullToken: "sample.token")
+let token = MyToken(fullToken: "sample.token")
 switch Keychain.default.storeObject(token, forKey: .authToken) {
     case .success:
         print("Woohoo!")
