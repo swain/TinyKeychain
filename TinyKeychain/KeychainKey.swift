@@ -20,8 +20,8 @@ public extension Keychain {
      _Recommended Usage_:
      ```
      extension Keychain.Key {
-        static var authToken: Keychain.Key<TokenObject> {
-            return Keychain.Key<TokenObject>(rawValue: "my.auth.token.key.here"
+        static var authToken: Keychain.Key<MyToken> {
+            return Keychain.Key<MyToken>(rawValue: "my.auth.token.key.here"
         }
      }
      

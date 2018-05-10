@@ -18,7 +18,7 @@ import Foundation
  ```
  extension Keychain {
     static var `default`: Keychain {
-        return Keychain(keychainAccessGroup: "my.keychain.access.group.here"
+        return Keychain(keychainAccessGroup: "my.keychain.access.group")
     }
  }
  ```
@@ -101,22 +101,20 @@ public class Keychain {
         }
     }
     
-    // The three properties below are marked fileprivate mainly for the purpose of keeping the name space clean.
-    
     /// The keychain access group associated with this keychain.
-    public let keychainAccessGroup: String
+    public let keychainAccessGroup: String?
     
     /// The security level to use when accessing this keychain.
     public let accessibilityLevel: AccessibilityLevel
     
     /**
-     Initializes and returns a `Keychain` associated with the provided `keychainAccessGroup`.
+     Initializes and returns a `Keychain`, optionally associated with the provided `keychainAccessGroup`.
      
      - Parameters:
         - keychainAccessGroup: The keychain access group to associate with this keychain.
         - accessibilityLevel: The accessibility level to associate with this keychain. Defaults to `.whenUnlocked`.
      */
-    public init(keychainAccessGroup: String, accessibilityLevel: AccessibilityLevel = .whenUnlocked) {
+    public init(keychainAccessGroup: String?, accessibilityLevel: AccessibilityLevel = .whenUnlocked) {
         self.keychainAccessGroup = keychainAccessGroup
         self.accessibilityLevel = accessibilityLevel
     }
@@ -217,9 +215,12 @@ extension Keychain {
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: key.rawValue,
             kSecAttrAccount: key.rawValue,
-            kSecAttrAccessible: self.accessibilityLevel.valueForQuery,
-            kSecAttrAccessGroup: self.keychainAccessGroup
+            kSecAttrAccessible: self.accessibilityLevel.valueForQuery
         ]
+        
+        if let keychainAccessGroup = self.keychainAccessGroup {
+            dict[kSecAttrAccessGroup] = keychainAccessGroup
+        }
         
         if key.isSynchronizing {
             precondition(self.accessibilityLevel.synchronizationIsPossible, "You tried to use a synchronizing Keychain.Key with a Keychain using an accessibility level that doesn't support synchronization.")
