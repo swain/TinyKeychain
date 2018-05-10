@@ -54,10 +54,10 @@ public class Keychain {
         case afterFirstUnlockThisDeviceOnly
         
         /// Maps to `kSecAttrAccessibleAlways`.
-        case alwaysAccessible
+        case always
         
         /// Maps to `kSecAttrAccessibleAlwaysThisDeviceOnly`.
-        case alwaysAccessibleThisDeviceOnly
+        case alwaysThisDeviceOnly
         
         /// Maps to `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`.
         case whenPasscodeSetThisDeviceOnly
