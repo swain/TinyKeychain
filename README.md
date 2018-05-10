@@ -21,7 +21,7 @@ extension Keychain {
 }
 ```
 
-The only way to store & retrieve objects to/from the keychain is using a `Keychain.Key` object. These are tied to an object type, and also don't hold mutable state. We recommend you make them accessible using dot syntax, as well:
+The only way to store & retrieve objects to/from the keychain is using a `Keychain.Key` object. These are tied to a `Codable` object type, and also don't hold mutable state. We recommend you make them accessible using dot syntax, as well:
 ```swift
 extension Keychain.Key {
     static var authToken: Keychain.Key<TokenObject> {
