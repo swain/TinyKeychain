@@ -3,18 +3,26 @@ A type-safe, easy-to-use keychain wrapper that can store anything that's `Codabl
 
 ## Basic Usage:
 
-First, set up your objects...
+First, set up your objects.
+
+TinyKeychain is built to store objects that are `Codable`, like this one:
 ```swift
-struct TokenObject: Codable {
+struct Token: Codable {
     let fullToken: String
 }
+```
 
+Create a `Keychain` instance. `Keychain` instances don't hold mutable state, so we recommend you make your instances accessible using Swift's dot syntax, like so:
+```swift
 extension Keychain {
     static var `default`: Keychain {
         return Keychain(keychainAccessGroup: "my.keychain.access.group")
     }
 }
+```
 
+The only way to store & retrieve objects to/from the keychain is using a `Keychain.Key` object. These are tied to an object type, and also don't hold mutable state. We recommend you make them accessible using dot syntax, as well:
+```swift
 extension Keychain.Key {
     static var authToken: Keychain.Key<TokenObject> {
         return Keychain.Key<TokenObject>(rawValue: "auth.token.key", synchronize: true)
@@ -22,7 +30,7 @@ extension Keychain.Key {
 }
 ```
 
-Then, get to work!
+Once you've got a `Keychain` instance, and a `Key` to query with, get to work!
 
 ```swift
 // Store
