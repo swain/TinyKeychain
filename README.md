@@ -1,5 +1,5 @@
 # TinyKeychain
-A type-safe, easy-to-use keychain wrapper that can store anything that's `Codable`.
+A Swifty, type-safe, easy-to-use keychain wrapper that can store anything that's `Codable`.
 
 ## Basic Usage:
 
@@ -12,7 +12,7 @@ struct Token: Codable {
 }
 ```
 
-Create a `Keychain` instance. `Keychain` instances don't hold mutable state, so we recommend you make your instances accessible using Swift's dot syntax, like so:
+Create a `Keychain` instance. `Keychain` instances don't hold mutable state, so we recommend you create your instances as `static` computed `var`s, so that they're accessible using Swift's dot syntax, like so:
 ```swift
 extension Keychain {
     static var `default`: Keychain {
@@ -30,7 +30,7 @@ extension Keychain.Key {
 }
 ```
 
-Once you've got a `Keychain` instance, and a `Key` to query with, get to work!
+Once you've got a `Keychain` instance, and a `Key` to query with, get to work! `Keychain` instances can be subscripted, like so:
 
 ```swift
 // Store
@@ -43,7 +43,7 @@ let fullToken = Keychain.default[.authToken]?.fullToken
 Keychain.default[.authToken] = nil
 ```
 
-Or, interface directly, and implement some error handling!
+Or, you can interface directly, and implement some error handling:
 ```swift
 // Store
 let token = TokenObject(fullToken: "sample.token")
