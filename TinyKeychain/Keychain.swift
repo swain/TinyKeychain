@@ -149,7 +149,7 @@ public class Keychain {
         }
         
         if status != noErr {
-            return .error(.couldNotStore(status))
+            return .error(.couldNotStore(keyRawValue: key.rawValue, status))
         }
         
         return .success(())
@@ -180,7 +180,7 @@ public class Keychain {
                 return .error(.decodingError(error))
             }
         } else {
-            return .error(.couldNotRetrieve(status))
+            return .error(.couldNotRetrieve(keyRawValue: key.rawValue, status))
         }
     }
     

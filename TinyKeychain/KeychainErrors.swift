@@ -14,7 +14,7 @@ extension Keychain {
     public enum StoringError: Error, CustomStringConvertible, CustomDebugStringConvertible {
         
         /// A keychain-level error resulting from storage attempt.
-        case couldNotStore(OSStatus)
+        case couldNotStore(keyRawValue: String, OSStatus)
         
         /// An `Error` resulting from attempt to encode. This will usually be an `EncodingError`, but Swift's error handling provides no guarantee.
         case encodingError(Error)
@@ -29,8 +29,8 @@ extension Keychain {
         
         public var debugDescription: String {
             switch self {
-            case .couldNotStore(let status):
-                return "Issue storing to keychain. OSStatus: \(status)"
+            case .couldNotStore(keyRawValue: let keyRawValue, let status):
+                return "Issue storing to keychain using key with raw value: \(keyRawValue). OSStatus: \(status)"
             case .encodingError(let error):
                 guard let encodingError = error as? EncodingError else {
                     return "Error arose during encoding that wasn't an `EncodingError`. Localized description: \(error.localizedDescription)"
@@ -52,7 +52,7 @@ extension Keychain {
     public enum RetrievalError: Error, CustomStringConvertible, CustomDebugStringConvertible {
         
         /// A keychain-level error resulting from retrieval attempt.
-        case couldNotRetrieve(OSStatus)
+        case couldNotRetrieve(keyRawValue: String, OSStatus)
         
         /// An `Error` resulting from attempt to decode the object found in the keychain. This will usually be a `DecodingError`, but Swift's error handling provides no guarantee.
         case decodingError(Error)
@@ -95,8 +95,8 @@ extension Keychain {
                 }
                 return string.replacingOccurrences(of: "<TYPE>", with: errorType)
                 
-            case .couldNotRetrieve(let status):
-                return "Issue retrieving from keychain. OSStatus: \(status)"
+            case .couldNotRetrieve(keyRawValue: let keyRawValue, let status):
+                return "Issue retrieving from keychain using key with raw value: \(keyRawValue). OSStatus: \(status)"
             }
         }
     }
