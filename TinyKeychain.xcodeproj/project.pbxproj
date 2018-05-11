@@ -15,6 +15,7 @@
 		A033914020A3B973005D873D /* KeychainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033913B20A3B973005D873D /* KeychainResult.swift */; };
 		A033914220A3B9D1005D873D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A033914120A3B9D1005D873D /* README.md */; };
 		A033914420A3B9FC005D873D /* TinyKeychain.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A033914320A3B9FB005D873D /* TinyKeychain.podspec */; };
+		A0974D6820A51BE200078177 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = A0974D6720A51BE200078177 /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A033913B20A3B973005D873D /* KeychainResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainResult.swift; sourceTree = "<group>"; };
 		A033914120A3B9D1005D873D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A033914320A3B9FB005D873D /* TinyKeychain.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TinyKeychain.podspec; sourceTree = "<group>"; };
+		A0974D6720A51BE200078177 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			children = (
 				A033914120A3B9D1005D873D /* README.md */,
 				A033914320A3B9FB005D873D /* TinyKeychain.podspec */,
+				A0974D6720A51BE200078177 /* .travis.yml */,
 				A033912E20A3B959005D873D /* TinyKeychain */,
 				A033912D20A3B959005D873D /* Products */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0974D6820A51BE200078177 /* .travis.yml in Resources */,
 				A033914420A3B9FC005D873D /* TinyKeychain.podspec in Resources */,
 				A033914220A3B9D1005D873D /* README.md in Resources */,
 			);
