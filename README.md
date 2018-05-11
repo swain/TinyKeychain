@@ -36,7 +36,7 @@ Once you've got a `Keychain` instance, and a `Key` to query with, get to work! `
 
 ```swift
 // Store
-Keychain.default[.authToken] = Token(fullToken: "sample.token")
+Keychain.default[.authToken] = MyToken(fullToken: "sample.token")
 
 // Retrieve
 let fullToken = Keychain.default[.authToken]?.fullToken
