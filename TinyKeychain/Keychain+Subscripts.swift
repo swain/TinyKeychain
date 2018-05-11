@@ -16,7 +16,7 @@ extension Keychain {
      - Note: No error handling is done here. If a retrieval fails, nil will be returned. Additionally, all storage and deletion calls are "fire-and-forget"--they may or may not succeed, and there will be no error notification if they do not.
      */
     
-    public subscript<O: Codable>(key: Key<O>) -> O? {
+    public subscript<Object: Codable>(key: Key<Object>) -> Object? {
         get {
             switch self.retrieveObject(forKey: key) {
             case .success(let object):
