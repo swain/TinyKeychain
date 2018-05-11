@@ -48,7 +48,7 @@ public extension Keychain {
          
          - Parameters:
             - rawValue: The raw `String` value to use for keying the keychain.
-            - synchronize: Whether or not values stored using this key should synchronize in iCloud.
+            - synchronize: Whether or not values stored using this key should synchronize in iCloud. Defaults to false.
          */
         public init(rawValue: String, synchronize: Bool = false) {
             self.rawValue = rawValue
