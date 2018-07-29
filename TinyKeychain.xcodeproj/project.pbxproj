@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A033913120A3B959005D873D /* TinyKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = A033912F20A3B959005D873D /* TinyKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A033913C20A3B973005D873D /* KeychainErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033913720A3B973005D873D /* KeychainErrors.swift */; };
 		A033913D20A3B973005D873D /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033913820A3B973005D873D /* KeychainKey.swift */; };
 		A033913E20A3B973005D873D /* Keychain+Subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A033913920A3B973005D873D /* Keychain+Subscripts.swift */; };
@@ -20,7 +19,6 @@
 
 /* Begin PBXFileReference section */
 		A033912C20A3B959005D873D /* TinyKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A033912F20A3B959005D873D /* TinyKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyKeychain.h; sourceTree = "<group>"; };
 		A033913020A3B959005D873D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A033913720A3B973005D873D /* KeychainErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainErrors.swift; sourceTree = "<group>"; };
 		A033913820A3B973005D873D /* KeychainKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
@@ -65,13 +63,12 @@
 		A033912E20A3B959005D873D /* TinyKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				A033912F20A3B959005D873D /* TinyKeychain.h */,
-				A033913020A3B959005D873D /* Info.plist */,
 				A033913A20A3B973005D873D /* Keychain.swift */,
 				A033913B20A3B973005D873D /* KeychainResult.swift */,
 				A033913820A3B973005D873D /* KeychainKey.swift */,
 				A033913720A3B973005D873D /* KeychainErrors.swift */,
 				A033913920A3B973005D873D /* Keychain+Subscripts.swift */,
+				A033913020A3B959005D873D /* Info.plist */,
 			);
 			path = TinyKeychain;
 			sourceTree = "<group>";
@@ -83,7 +80,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A033913120A3B959005D873D /* TinyKeychain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

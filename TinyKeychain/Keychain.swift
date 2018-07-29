@@ -11,15 +11,13 @@ import Foundation
 /**
  Model representation of the Keychain. Allows for storage, retrieval, and deletion.
  
- Every `Keychain` instance is associated with a single keychain access group. It is safe to recreate a `Keychain` instance using the same keychain access group multiple times, and access the same keys.
+ Every `Keychain` instance is associated with a single keychain access group. `Keychain` instances act as pure proxies--it is safe to recreate a `Keychain` instance using the same parameters and access the same keys.
  
  _Recommended Usage_:
  
  ```
  extension Keychain {
-    static var `default`: Keychain {
-        return Keychain(keychainAccessGroup: "my.keychain.access.group")
-    }
+    static let `default` = Keychain(keychainAccessGroup: "my.keychain.access.group")
  }
  ```
  
@@ -35,7 +33,7 @@ import Foundation
  Keychain.default[.authToken] = nil
  ```
  */
-public class Keychain {
+public struct Keychain {
     
     /**
      Represents an accessibility level of a `Keychain`.
@@ -102,7 +100,7 @@ public class Keychain {
     }
     
     /// The keychain access group associated with this keychain.
-    public let keychainAccessGroup: String?
+    public let group: String?
     
     /// The security level to use when accessing this keychain.
     public let accessibilityLevel: AccessibilityLevel
@@ -111,11 +109,11 @@ public class Keychain {
      Initializes and returns a `Keychain`, optionally associated with the provided `keychainAccessGroup`.
      
      - Parameters:
-        - keychainAccessGroup: The keychain access group to associate with this keychain.
+        - group: The keychain access group to associate with this keychain.
         - accessibilityLevel: The accessibility level to associate with this keychain. Defaults to `.whenUnlocked`.
      */
-    public init(keychainAccessGroup: String?, accessibilityLevel: AccessibilityLevel = .whenUnlocked) {
-        self.keychainAccessGroup = keychainAccessGroup
+    public init(group: String?, accessibilityLevel: AccessibilityLevel = .whenUnlocked) {
+        self.group = group
         self.accessibilityLevel = accessibilityLevel
     }
     
@@ -218,8 +216,8 @@ extension Keychain {
             kSecAttrAccessible: self.accessibilityLevel.valueForQuery
         ]
         
-        if let keychainAccessGroup = self.keychainAccessGroup {
-            dict[kSecAttrAccessGroup] = keychainAccessGroup
+        if let accessGroup = self.group {
+            dict[kSecAttrAccessGroup] = accessGroup
         }
         
         if key.isSynchronizing {
