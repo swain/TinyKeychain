@@ -14,12 +14,10 @@ struct MyToken: Codable {
 }
 ```
 
-Create a `Keychain` instance. `Keychain` instances don't hold mutable state, so we recommend you create your instances as static computed vars, so that they're accessible using Swift's dot syntax, like so:
+Create a `Keychain` instance. `Keychain` instances don't hold mutable state, so we recommend you create your instances as static properties on `Keychain`, so that they're accessible using Swift's dot syntax, like so:
 ```swift
 extension Keychain {
-    static var `default`: Keychain {
-        return Keychain(keychainAccessGroup: "my.keychain.access.group")
-    }
+    static let `default` = Keychain(keychainAccessGroup: "my.keychain.access.group")
 }
 ```
 
@@ -45,7 +43,7 @@ let fullToken = Keychain.default[.authToken]?.fullToken
 Keychain.default[.authToken] = nil
 ```
 
-Or, you can interface directly, and implement some error handling:
+Or, you can use the full API, and implement some error handling:
 ```swift
 // Store
 let token = MyToken(fullToken: "sample.token")
