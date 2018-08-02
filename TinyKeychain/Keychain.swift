@@ -132,7 +132,7 @@ public struct Keychain {
         
         let data: Data
         do {
-            data = try JSONEncoder().encode(object)
+            data = try JSONEncoder().encode(Container(object))
         } catch let error {
             return .error(.encodingError(error))
         }
@@ -173,7 +173,8 @@ public struct Keychain {
                 return .error(.objectNotFound(keyRawValue: key.rawValue))
             }
             do {
-                return .success(try JSONDecoder().decode(O.self, from: data))
+                let container = try JSONDecoder().decode(Container<O>.self, from: data)
+                return .success(container.object)
             } catch let error {
                 return .error(.decodingError(error))
             }
@@ -226,5 +227,15 @@ extension Keychain {
         }
         
         return dict
+    }
+}
+
+extension Keychain {
+    /// A simple container struct, necessary for storing simple `Codable` objects like `String` and `Bool`, which `JSONEncoder` can't encode directly.
+    fileprivate struct Container<Object: Codable>: Codable {
+        let object: Object
+        init(_ object: Object) {
+            self.object = object
+        }
     }
 }
