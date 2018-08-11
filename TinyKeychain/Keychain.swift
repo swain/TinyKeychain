@@ -17,7 +17,7 @@ import Foundation
  
  ```
  extension Keychain {
-    static let `default` = Keychain(keychainAccessGroup: "my.keychain.access.group")
+    static let `default` = Keychain(group: "my.keychain.access.group")
  }
  ```
  
@@ -106,7 +106,7 @@ public struct Keychain {
     public let accessibilityLevel: AccessibilityLevel
     
     /**
-     Initializes and returns a `Keychain`, optionally associated with the provided `keychainAccessGroup`.
+     Initializes and returns a `Keychain`, optionally associated with the provided `group`.
      
      - Parameters:
         - group: The keychain access group to associate with this keychain.
