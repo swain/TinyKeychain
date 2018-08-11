@@ -190,7 +190,7 @@ public struct Keychain {
      - returns: Either success, or a `Keychain.DeletionError`.
      */
     @discardableResult
-    public func deleteObject<O>(withKey key: Key<O>) -> KeychainResult<Void, DeletionError> {
+    public func deleteObject<O>(forKey key: Key<O>) -> KeychainResult<Void, DeletionError> {
         let query = self.getBaseKeychainQuery(forKey: key)
         
         let status: OSStatus = SecItemDelete(query as CFDictionary)

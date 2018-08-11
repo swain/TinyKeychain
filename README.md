@@ -67,7 +67,7 @@ switch Keychain.default.deleteObject(forKey: .authToken) {
     case .success:
         print("Woohoo!")
     case .error(let error):
-        print("Bummer! \(error.description")
+        print("Bummer! \(error.description)")
 }
 ```
 ## Get it!
