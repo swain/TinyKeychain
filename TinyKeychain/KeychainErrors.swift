@@ -57,9 +57,6 @@ extension Keychain {
         /// An `Error` resulting from attempt to decode the object found in the keychain. This will usually be a `DecodingError`, but Swift's error handling provides no guarantee.
         case decodingError(Error)
         
-        /// Could not find an object in the keychain for the provided key.
-        case objectNotFound(keyRawValue: String)
-        
         public var localizedDescription: String {
             return description
         }
@@ -70,8 +67,6 @@ extension Keychain {
         
         public var debugDescription: String {
             switch self {
-            case .objectNotFound(keyRawValue: let keyRawValue):
-                return "Object not found in keychain for key with raw value: \(keyRawValue)."
             case .decodingError(let error):
                 guard let decodingError = error as? DecodingError else {
                     return "Error arose during decoding that wasn't a `DecodingError`. Localized description: \(error.localizedDescription)"

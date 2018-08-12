@@ -1,6 +1,8 @@
 osx_image: xcode9.4
 language: swift
-script: xcodebuild | xcpretty
+script: xcodebuild build test | xcpretty
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
 deploy:
     - provider: releases
       api_key:
