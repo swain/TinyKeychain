@@ -112,7 +112,7 @@ public struct Keychain {
         - group: The keychain access group to associate with this keychain.
         - accessibilityLevel: The accessibility level to associate with this keychain. Defaults to `.whenUnlocked`.
      */
-    public init(group: String?, accessibilityLevel: AccessibilityLevel = .whenUnlocked) {
+    public init(group: String? = nil, accessibilityLevel: AccessibilityLevel = .whenUnlocked) {
         self.group = group
         self.accessibilityLevel = accessibilityLevel
     }
@@ -170,7 +170,7 @@ public struct Keychain {
         
         if status == noErr {
             guard let data = keyData as? Data else {
-                return .error(.objectNotFound(keyRawValue: key.rawValue))
+                fatalError("Data should always be available if status == noErr")
             }
             do {
                 let container = try JSONDecoder().decode(Container<O>.self, from: data)
