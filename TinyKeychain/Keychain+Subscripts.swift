@@ -30,7 +30,7 @@ extension Keychain {
             if let newValue = newValue {
                 self.storeObject(newValue, forKey: key)
             } else {
-                self.deleteObject(withKey: key)
+                self.deleteObject(forKey: key)
             }
         }
     }
