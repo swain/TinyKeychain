@@ -14,7 +14,7 @@ struct MyToken: Codable {
 }
 ```
 
-Create a `Keychain` instance. `Keychain` instances don't hold mutable state, so we recommend you create your instances as static properties on `Keychain`, so that they're accessible using Swift's dot syntax, like so:
+Create a `Keychain` instance. We recommend you create your instances as static properties on `Keychain`, so that they're accessible using Swift's dot syntax, like so:
 ```swift
 extension Keychain {
     static let `default` = Keychain(group: "my.keychain.access.group")
