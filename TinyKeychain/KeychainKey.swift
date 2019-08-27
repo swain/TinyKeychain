@@ -36,7 +36,7 @@ public extension Keychain {
      ```
      
      */
-    public struct Key<Object: Codable> {
+    struct Key<Object: Codable> {
         /// The raw value of the key.
         public let rawValue: String
         
