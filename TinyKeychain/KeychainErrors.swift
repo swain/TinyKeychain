@@ -42,6 +42,9 @@ extension Keychain {
                 case .invalidValue(_, let context):
                     errorType = "Invalid Value"
                     string += "\nContext: \(context.debugDescription)\nCoding Path: \(context.codingPath)"
+                @unknown default:
+                    errorType = "Unknown error"
+                    string += "\nUnknown error"
                 }
                 return string.replacingOccurrences(of: "<TYPE>", with: errorType)
             }
@@ -87,6 +90,9 @@ extension Keychain {
                 case .valueNotFound(let type, let context):
                     errorType = "Value Not Found"
                     string += "\nContext: \(context.debugDescription)\nCoding Path: \(context.codingPath)\nType: \(type)"
+                @unknown default:
+                    errorType = "Unknown error"
+                    string += "\nUnknown error"
                 }
                 return string.replacingOccurrences(of: "<TYPE>", with: errorType)
                 
